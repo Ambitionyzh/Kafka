@@ -20,7 +20,7 @@ public class CustomProducer {
         Properties properties = new Properties();
 
         //连接集群 bootstrap.servers
-        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"hadoop102:9002,hadoop103:9002");
+        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"hadoop102:9092,hadoop103:9092");
 
         //指定对应key和value的序列化类型
         properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
