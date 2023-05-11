@@ -13,7 +13,7 @@ import java.util.Properties;
  * @date 2023/4/28 20:30
  */
 public class CustomProducerCallback {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         //0 配置
         Properties properties = new Properties();
 
@@ -32,7 +32,7 @@ public class CustomProducerCallback {
 
         //2.发送数据
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 500; i++) {
             kafkaProducer.send(new ProducerRecord<>("first", "wuhu" + i), new Callback() {
                 @Override
                 public void onCompletion(RecordMetadata recordMetadata, Exception exception) {
@@ -41,6 +41,7 @@ public class CustomProducerCallback {
                     }
                 }
             });
+
         }
         //3.关闭资源
         kafkaProducer.close();
